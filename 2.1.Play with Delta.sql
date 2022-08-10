@@ -197,11 +197,6 @@ VACUUM students RETAIN 0 HOURS
 
 -- COMMAND ----------
 
--- MAGIC %python
--- MAGIC display(dbutils.fs.ls(f"/user/hive/warehouse/students"))
-
--- COMMAND ----------
-
 -- DBTITLE 1,Table 정리 
 drop table students;
 
