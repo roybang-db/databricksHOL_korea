@@ -176,6 +176,25 @@ display(diamondsDF.select("color","price").groupBy("color").agg(avg("price")).so
 
 # COMMAND ----------
 
+# DBTITLE 1,다양한 외부시각화라이브러리 활용
+# Use your favorite charting library
+import numpy as np
+import matplotlib.pyplot as plt
+
+points, zorder1, zorder2 = 500, 10, 5
+x = np.linspace(0, 1, points)
+y = np.sin(4 * np.pi * x) * np.exp(-5 * x)
+
+fig, ax = plt.subplots()
+
+ax.fill(x, y, zorder=zorder1)
+ax.grid(True, zorder=zorder2)
+plt.show()
+display() # Databricks display
+plt.close() # Ensure you close it
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC 
 # MAGIC ## 4. 다양한 협업 기능  
