@@ -38,12 +38,7 @@ data = pd.concat([red_wine, white_wine], axis=0)
 data.rename(columns=lambda x: x.replace(' ', '_'), inplace=True)
 data.isna().any()
 
-X = data.drop(["quality"], axis=1)
-y = data.quality
-
-X_train, X_rem, y_train, y_rem = train_test_split(X, y, train_size=0.6, random_state=123)
-
-spark_df = spark.createDataFrame(X_train)
+spark_df = spark.createDataFrame(data)
 table_path = "dbfs:/hol/delta/wine_data"
 
 dbutils.fs.rm(table_path, True)
